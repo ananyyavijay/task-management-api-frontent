@@ -2,7 +2,7 @@ import axios from "axios";
 import { getAuthToken, clearAuthToken } from "@/lib/auth-token";
 
 const baseURL =
-  process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/+$/, "") ||
+  process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/, "") ||
   "http://localhost:8000";
 
 export const apiClient = axios.create({

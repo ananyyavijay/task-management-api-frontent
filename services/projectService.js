@@ -8,7 +8,7 @@ import { DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE } from "@/lib/constants";
  */
 export async function listProjects(params = {}) {
   const { skip = 0, limit = DEFAULT_PAGE_SIZE } = params;
-  const { data } = await apiClient.get("/projects/", {
+  const { data } = await apiClient.get("/projects", {
     params: { skip, limit },
   });
   return data;
@@ -20,7 +20,7 @@ export async function listProjects(params = {}) {
  * @returns {Promise<import('@/types/project').Project>}
  */
 export async function getProject(id) {
-  const { data } = await apiClient.get(`/projects/${id}`);
+  const { data } = await apiClient.get(`/projects${id}`);
   return data;
 }
 
@@ -30,7 +30,7 @@ export async function getProject(id) {
  * @returns {Promise<import('@/types/project').Project>}
  */
 export async function createProject(payload) {
-  const { data } = await apiClient.post("/projects/", payload);
+  const { data } = await apiClient.post("/projects", payload);
   return data;
 }
 
@@ -41,7 +41,7 @@ export async function createProject(payload) {
  * @returns {Promise<import('@/types/project').Project>}
  */
 export async function updateProject(id, payload) {
-  const { data } = await apiClient.put(`/projects/${id}`, payload);
+  const { data } = await apiClient.put(`/projects${id}`, payload);
   return data;
 }
 
@@ -51,7 +51,7 @@ export async function updateProject(id, payload) {
  * @returns {Promise<void>}
  */
 export async function deleteProject(id) {
-  await apiClient.delete(`/projects/${id}`);
+  await apiClient.delete(`/projects${id}`);
 }
 
 /**

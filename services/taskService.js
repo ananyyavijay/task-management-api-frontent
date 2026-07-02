@@ -8,7 +8,7 @@ import { DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE } from "@/lib/constants";
  */
 export async function listTasks(params = {}) {
   const { project_id, status, priority, skip = 0, limit = DEFAULT_PAGE_SIZE } = params;
-  const { data } = await apiClient.get("/tasks/", {
+  const { data } = await apiClient.get("/tasks", {
     params: {
       ...(project_id ? { project_id } : {}),
       ...(status ? { status } : {}),
@@ -26,7 +26,7 @@ export async function listTasks(params = {}) {
  * @returns {Promise<import('@/types/task').Task>}
  */
 export async function getTask(id) {
-  const { data } = await apiClient.get(`/tasks/${id}`);
+  const { data } = await apiClient.get(`/tasks${id}`);
   return data;
 }
 
@@ -36,7 +36,7 @@ export async function getTask(id) {
  * @returns {Promise<import('@/types/task').Task>}
  */
 export async function createTask(payload) {
-  const { data } = await apiClient.post("/tasks/", payload);
+  const { data } = await apiClient.post("/tasks", payload);
   return data;
 }
 
@@ -47,7 +47,7 @@ export async function createTask(payload) {
  * @returns {Promise<import('@/types/task').Task>}
  */
 export async function updateTask(id, payload) {
-  const { data } = await apiClient.put(`/tasks/${id}`, payload);
+  const { data } = await apiClient.put(`/tasks${id}`, payload);
   return data;
 }
 

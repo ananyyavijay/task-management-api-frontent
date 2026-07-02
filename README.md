@@ -18,7 +18,6 @@ Every screen, request, and validation rule in this app is implemented directly a
 | Icons | lucide-react |
 | Toasts | Sonner |
 
-No TypeScript — the codebase uses JSDoc typedefs (see `types/`) for editor intellisense while staying pure JavaScript, as requested.
 
 ---
 
